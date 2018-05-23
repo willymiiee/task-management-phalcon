@@ -1,0 +1,12 @@
+{
+    "name": "willy/task-management-phalcon",
+    "authors": [
+        {
+            "name": "Willy Nugraha",
+            "email": "willymiiee@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    }
+}
