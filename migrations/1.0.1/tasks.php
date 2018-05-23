@@ -58,16 +58,6 @@ class TasksMigration_101 extends Migration
                             'size' => 1,
                             'after' => 'created_at'
                         ]
-                    ),
-                    new Column(
-                        'deleted_at',
-                        [
-                            'type' => Column::TYPE_DATETIME,
-                            'default' => NULL,
-                            'notNull' => false,
-                            'size' => 1,
-                            'after' => 'updated_at'
-                        ]
                     )
                 ],
                 'indexes' => [
