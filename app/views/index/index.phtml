@@ -1,7 +1,35 @@
-<div class="page-header">
-    <h1>Congratulations!</h1>
+<div class="page-header text-center">
+    <h1>Task Management App</h1>
 </div>
 
-<p>You're now flying with Phalcon. Great things are about to happen!</p>
+<form class="form-inline text-center" action="index/store" method="post">
+    <div class="form-group">
+        <label class="sr-only">Task Name</label>
+        <input type="text" class="form-control" placeholder="Input task name" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-<p>This page is located at <code>views/index/index.phtml</code></p>
+<table class="table mt-4">
+    <thead>
+        <td>Name</td>
+        <td>Created Date</td>
+        <td>Action</td>
+    </thead>
+
+    <tbody>
+        <?php foreach ($data as $d): ?>
+        <tr>
+            <td><?= $d->name ?></td>
+            <td><?= $d->created_at ?></td>
+            <td>
+                <a class="btn btn-warning" href="index/edit/<?= $d->id ?>">Edit</a>
+                <form action="index/delete/<?= $d->id ?>" method="post" onsubmit="return confirm('Do you really want to delete?');">
+                    <input name="_method" type="hidden" value="DELETE">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
