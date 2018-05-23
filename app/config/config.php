@@ -6,6 +6,17 @@
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
+/**
+ * Composer autoload
+ */
+include __DIR__ . '/../../vendor/autoload.php';
+
+/**
+ * Environment variables
+ */
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../../');
+$dotenv->load();
+
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
